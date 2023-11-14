@@ -17,7 +17,7 @@ public class PasswordValidator {
                 isValid=true;
                 System.out.println("Password is valid");
             }else{
-                System.out.println("Invalid password! Password should have no more than 3 characters, and can only contain uppercase/lowercase letters or numbers.");
+                System.out.println("Invalid password!! Password should have no more than 3 characters, and can only contain uppercase/lowercase letters or numbers.");
             }
         }
         scanner.close();

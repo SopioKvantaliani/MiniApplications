@@ -10,7 +10,11 @@ public class MiniApplicationsApplication {
     public static void main(String[] args) {
         SpringApplication.run(MiniApplicationsApplication.class, args);
 
+        System.out.println("______________________________________________");
         PasswordValidator.checkApplicationPassword();
+
+
+
 
 
     }
