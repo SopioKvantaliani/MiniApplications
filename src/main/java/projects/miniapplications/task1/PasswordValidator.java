@@ -1,6 +1,8 @@
 package projects.miniapplications.task1;
 
 import java.util.Scanner;
+import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 
 public class PasswordValidator {
 
@@ -16,8 +18,17 @@ public class PasswordValidator {
             if (isValidPassword (password)){
                 isValid=true;
                 System.out.println("Password is valid");
+
+                try {
+                    String md5Hash = GenerateMD5Hash.generateMD5Hash(password);
+                    MD5HashFileWriter.saveMD5HashToFile(md5Hash);
+                } catch (NoSuchAlgorithmException | IOException e) {
+                    System.out.println("Error saving MD5 hash to file: " + e.getMessage());
+                }
+
+
             }else{
-                System.out.println("Invalid password! Password should have no more than 3 characters, and can only contain uppercase/lowercase letters or numbers.");
+                System.out.println("Invalid password!! Password should have no more than 3 characters, and can only contain uppercase/lowercase letters or numbers.");
             }
         }
         scanner.close();
