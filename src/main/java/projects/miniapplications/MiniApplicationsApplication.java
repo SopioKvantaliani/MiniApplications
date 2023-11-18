@@ -18,8 +18,9 @@ public class MiniApplicationsApplication {
 
         System.out.println("------------------------------------------------");
 
-        String targetHash = "86af1c2fd820797c1b2b39c09ade58b6";
-        GenerateAndCheckPassword.checkPassword(targetHash);
+        String filePath = "md5hash.txt";
+        String md5Hash = GenerateAndCheckPassword.readMd5HashFromFile(filePath);
+        GenerateAndCheckPassword.checkPassword(md5Hash);
 
     }
 

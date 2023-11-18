@@ -35,13 +35,20 @@ public class GenerateAndCheckPassword {
         System.out.println("Password not found.");
     }
 
+    public static String readMd5HashFromFile(String filePath) {
+        StringBuilder hashBuilder = new StringBuilder();
 
-//    public static String readTargetHashFromFile(String filePath) {
-//        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-//            return reader.readLine(); // Read the entire line as the target hash
-//        } catch (IOException e) {
-//            System.err.println("Error reading the target hash from file: " + e.getMessage());
-//            return null;
-//        }
-//    }
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                // Append each line to the StringBuilder
+                hashBuilder.append(line);
+            }
+        } catch (IOException e) {
+            System.err.println("Error reading md5hash.txt: " + e.getMessage());
+        }
+
+        // Convert the StringBuilder to a string and return
+        return hashBuilder.toString();
+    }
 }
